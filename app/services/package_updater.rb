@@ -5,7 +5,7 @@ class PackageUpdater
 
   attr_reader :package_count
 
-  def initialize(package_count)
+  def initialize(package_count=0)
     @lines_count = (package_count * 5).to_i
   end
 
@@ -39,8 +39,7 @@ class PackageUpdater
 
 
          #read only specified number of packages
-          break if lines >= @lines_count
-
+          break if (lines >= @lines_count) && (@lines_count != 0)
 
     end
 

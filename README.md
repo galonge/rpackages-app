@@ -21,7 +21,7 @@
 
 
 ### Fetching Packages API
-* To fetch packages, call this endpoint with a GET request <br/> **GET** ```localhost:3000/api/v1/packages```. This will creturn a JSON of all packages  <br/>
+* To fetch packages, call this endpoint with a GET request <br/> **GET** ```localhost:3000/api/v1/packages```. This will return a JSON of all packages  <br/>
 
 
 ### Environments
