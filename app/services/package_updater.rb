@@ -88,13 +88,13 @@ class PackageUpdater
   def save(desc_hash)
 
       #prepare values for db
-      name = desc_hash["Package"].strip
-      version = desc_hash["Version"].strip
-      date_of_publication = desc_hash["Date/Publication"].strip
-      title = desc_hash["Title"].strip
-      description = desc_hash["Description"].strip
-      author = desc_hash["Author"].strip
-      maintainer = desc_hash["Maintainer"].strip
+      name = encode_str(desc_hash["Package"])
+      version = encode_str(desc_hash["Version"])
+      date_of_publication = encode_str(desc_hash["Date/Publication"])
+      title = encode_str(desc_hash["Title"])
+      description = encode_str(desc_hash["Description"])
+      author = encode_str(desc_hash["Author"])
+      maintainer = encode_str(desc_hash["Maintainer"])
 
       #start package create transaction
       Package.transaction do
@@ -105,6 +105,11 @@ class PackageUpdater
       end
 
      puts "====New Package #{name} Saved!===="
+  end
+
+
+  def encode_str(str)
+    str.strip.force_encoding("UTF-8")
   end
 
 end
