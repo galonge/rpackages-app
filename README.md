@@ -1,49 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* This app is available at https://r-packageman.herokuapp.com
 
-Things you may want to cover:
+## Setup
+* Install [Ruby] >= 2.6.3
+* Install [Rails] >= 5.2
+* Install [Node] >= 8.0
+* Make sure Bundler is installed. If not, run ```$ gem install bundler```.
+* Run ```$ bundle install``` to install all dependencies
+* Run ```$ rake db:create db:migrate``` to create the database, run all migrations.
+* Run ```$ cd frontend-app && npm install && cd ..``` to install frontend dependencies
+* Run ```$ rake start:development``` to start the development server
 
-* Ruby version
+## Testing
+* _Optional_: To run all RSpec tests, type ```$ rspec``` in your console.
 
-* System dependencies
+### Populating the database with packages
+* There are (3) rake tasks for populating the database. ```populate, populate_50, populate_500```
+* Run ```$ rake packages:populate_50``` to populate DB with first 50 packages or ```$ rake packages:populate_500``` to populate with 500 packages.
 
-* Configuration
 
-* Database creation
+### Fetching Packages API
+* To fetch packages, call this endpoint with a GET request <br/> **GET** ```localhost:3000/api/v1/packages```. This will creturn a JSON of all packages  <br/>
 
-* Database initialization
 
-* How to run the test suite
+### Environments
+* In development, run ```rake start:development``` to setup and start the development server.
+* On production, run ```rake start:production``` to setup and start the production server.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Clearing Database
+* run ```rake packages:clear``` to clear all packages. This will empty the database.
 
-* Deployment instructions
-
-* ...
-Fetching packages from remote url
-====archive description reading has started for package - A3
-====
-====New Package A3 Saved!====
-====archive description reading has started for package - aaSEA
-====
-====New Package aaSEA Saved!====
-====archive description reading has started for package - abbyyR
-====
-====New Package abbyyR Saved!====
-====archive description reading has started for package - abc
-====
-====New Package abc Saved!====
-====archive description reading has started for package - abc.data
-====
-====New Package abc.data Saved!====
-====archive description reading has started for package - ABC.RAP
-====
-====New Package ABC.RAP Saved!====
-====archive description reading has started for package - ABCanalysis
-====
-====New Package ABCanalysis Saved!====
-====archive description reading has started for package - abcdeFBA
-====
-====New Package abcdeFBA Saved!====
+### Accessing App
+* In development, after starting the development server, open your browser to ```localhost:3000```
+* Heroku: visit https://r-packageman.herokuapp.com to access app.
