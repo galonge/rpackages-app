@@ -1,0 +1,11 @@
+{
+  "name": "R Packager React and Rails App",
+  "engines": {
+    "node": "6.3.1"
+  },
+  "scripts": {
+    "build": "cd frontend-app && npm install && npm run build && cd ..",
+    "deploy": "cp -a frontend-app/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Frontend App built!'"
+  }
+}
