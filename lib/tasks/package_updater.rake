@@ -7,12 +7,12 @@ namespace :packages do
   end
 
   desc "Update Database with first 50 packages"
-  task populate: :environment do
+  task populate_50: :environment do
     PackageUpdater.new(50).call
   end
 
   desc "Update Database with first 500 packages"
-  task populate: :environment do
+  task populate_500: :environment do
     PackageUpdater.new(500).call
   end
 
