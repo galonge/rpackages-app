@@ -13,7 +13,30 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+#
+
+
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow_localhost: true)
+
+
 RSpec.configure do |config|
+
+
+
+  config.before(:each) do
+    stub_request(:get, "http://cran.r-project.org/src/contrib/PACKAGES").
+         with(
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200,
+           body: package_body,
+          headers: {})
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -93,4 +116,11 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
+
+def package_body
+  File.read(Rails.root.join('public', 'sample.txt'))
+end
+
 end
