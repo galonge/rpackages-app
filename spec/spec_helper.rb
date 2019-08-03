@@ -118,7 +118,7 @@ RSpec.configure do |config|
 
 
 def package_body
-  File.read(Rails.root.join('public', 'sample.txt'))
+  File.read(Rails.root.join('storage', 'sample.txt'))
 end
 
 end
