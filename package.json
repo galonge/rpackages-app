@@ -1,5 +1,5 @@
 {
-  "name": "R Packager React and Rails App",
+  "name": "r-packager-react-and-rails-app",
   "engines": {
     "node": "6.3.1"
   },
