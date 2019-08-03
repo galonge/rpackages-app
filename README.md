@@ -12,7 +12,7 @@
 * Run ```$ cd frontend-app && npm install && cd ..``` to install frontend dependencies
 * Run ```$ rake start:development``` to start the development server
 
-## Testing
+### Testing
 * _Optional_: To run all RSpec tests, type ```$ rspec``` in your console.
 
 ### Populating the database with packages
