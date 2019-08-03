@@ -92,13 +92,18 @@ class PackageUpdater
       description = encode_str(desc_hash["Description"])
       author = encode_str(desc_hash["Author"])
       maintainer = encode_str(desc_hash["Maintainer"])
+      version_tracker = "#{name}_#{version}"
 
       #start package create transaction
-      Package.transaction do
-          Package.create!(name: name, version: version, date_of_publication: date_of_publication,
-                        title: title, description: description, author: author,
-                        maintainer: maintainer
-                        )
+      begin
+         Package.transaction do
+              Package.create!(name: name, version: version, date_of_publication: date_of_publication,
+                            title: title, description: description, author: author,
+                            maintainer: maintainer, version_tracker: version_tracker
+                            )
+          end
+      rescue ActiveRecord::RecordInvalid => e
+        puts "Package Exists"
       end
 
      puts "====New Package #{name} Saved!===="
