@@ -28,6 +28,11 @@
 * In development, run ```rake start:development``` to setup and start the development server.
 * On production, run ```rake start:production``` to setup and start the production server.
 
+### Updating Packages
+* To manually update all packages, run ```$ rake packages:indexer_100``` to update first 100 packages or ```$rake packages:indexer``` to update all packages from remote CRON Server.<br/>
+* On Production, a scheduler runs on heroku at 12PM daily to update 100 packages.
+
+
 ### Clearing Database
 * run ```rake packages:clear``` to clear all packages. This will empty the database.
 
