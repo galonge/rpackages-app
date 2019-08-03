@@ -1,7 +1,5 @@
 require 'open-uri'
 require 'gzipped_tar'
-require 'pry'
-
 
 class PackageUpdater
 
