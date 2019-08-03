@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_143940) do
+ActiveRecord::Schema.define(version: 2019_08_03_214848) do
 
   create_table "packages", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_143940) do
     t.string "maintainer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "version_tracker"
   end
 
 end
